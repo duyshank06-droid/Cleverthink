@@ -1,4 +1,4 @@
-\/* ================= VARIABLES & RESET ================= */
+/* 1. BIẾN & RESET */
 :root {
     --primary: #0056b3;
     --primary-hover: #004494;
@@ -6,41 +6,48 @@
     --text: #333;
     --bg: #ffffff;
     --danger: #dc3545;
-    --heart: #ff4757;
     --border: #e0e0e0;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 body { color: var(--text); background: var(--bg); line-height: 1.6; }
 html { scroll-behavior: smooth; }
-
-/* Các phần khác giữ nguyên... */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 .section-padding { padding: 60px 0; }
 .section-bg { background: var(--secondary); padding: 60px 0; }
-.btn { display: inline-block; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; cursor: pointer; border: none; transition: 0.3s; text-align: center; }
+
+/* 2. BUTTONS & UI */
+.btn { display: inline-block; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; cursor: pointer; border: none; transition: 0.3s; }
 .btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-hover); }
 .w-100 { width: 100%; }
 
-/* [BỔ SUNG VÀO PHẦN TIME-SLOT] */
-.time-slot {
-    background: white;
-    border: 1px dashed #ccc;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    color: #aaa;
-    /* ĐÃ BỔ SUNG TỐI ƯU MOBILE TẠI ĐÂY */
-    -webkit-tap-highlight-color: transparent; 
-    touch-action: manipulation;
-}
-.time-slot.selected { background: var(--primary); color: white; border: 1px solid var(--primary); transform: scale(0.95); }
+/* 3. NAVBAR */
+.navbar { padding: 15px 0; background: white; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none; }
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { text-decoration: none; color: var(--text); font-weight: 600; }
 
-/* Giữ nguyên các phần CSS còn lại của bạn trong file style.css */
-.time-grid { display: grid; grid-template-columns: 80px repeat(7, 1fr); gap: 8px; }
-.time-cell { text-align: center; padding: 12px 5px; font-size: 0.9rem; border-radius: 4px; user-select: none; }
-.header-cell { font-weight: 700; color: var(--primary); background: transparent; }
-.shift-label { font-weight: 600; display: flex; align-items: center; justify-content: center; background: white; border: 1px solid var(--border); }
+/* 4. HERO SECTION */
+.hero { padding: 80px 0; text-align: center; }
+.hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
+.badge { background: var(--secondary); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; }
+
+/* 5. CARDS (Gia sư) */
+.tutor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+.tutor-card { background: white; padding: 25px; border-radius: 12px; border: 1px solid var(--border); text-align: center; transition: 0.3s; }
+.tutor-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.tutor-avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
+.tutor-tags span { display: inline-block; background: var(--secondary); padding: 5px 10px; margin: 3px; border-radius: 4px; font-size: 0.8rem; }
+
+/* 6. FORMS */
+.form-group-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+input, select, textarea { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; margin-bottom: 15px; }
+
+/* 7. MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* Ẩn menu trên mobile đơn giản */
+    .hero h1 { font-size: 1.8rem; }
+    .form-group-row { grid-template-columns: 1fr; }
+}
