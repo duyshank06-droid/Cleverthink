@@ -1,5 +1,7 @@
-// Interactive Schedule
+// Biến lưu lịch chọn
 const selectedSlots = [];
+
+// Xử lý chọn lịch
 document.querySelectorAll('.time-slot').forEach(btn => {
     btn.addEventListener('click', function() {
         this.classList.toggle('active');
@@ -13,14 +15,33 @@ document.querySelectorAll('.time-slot').forEach(btn => {
     });
 });
 
-// Submit Form
-document.getElementById('regForm').addEventListener('submit', function(e) {
+// Xử lý gửi Form lên Render Backend
+document.getElementById('regForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    const data = {
+    
+    const formData = {
         name: document.getElementById('name').value,
         phone: document.getElementById('phone').value,
         subject: document.getElementById('subject').value,
         slots: selectedSlots
     };
-    alert('Cảm ơn ' + data.name + '! Chúng tôi đã ghi nhận lịch đăng ký: ' + data.slots.join(', '));
+
+    try {
+        // THAY URL CỦA BẠN VÀO ĐÂY SAU KHI DEPLOY LÊN RENDER
+        const response = await fetch('https://giasu-backend.onrender.com/api/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+            alert('Đăng ký thành công! Thầy/Cô sẽ liên hệ sớm.');
+            this.reset();
+        } else {
+            alert('Lỗi hệ thống, vui lòng thử lại.');
+        }
+    } catch (error) {
+        console.error('Lỗi:', error);
+        alert('Không kết nối được server.');
+    }
 });
