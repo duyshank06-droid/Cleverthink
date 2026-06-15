@@ -1,34 +1,26 @@
-// 1. Menu Mobile Toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+// Interactive Schedule
+const selectedSlots = [];
+document.querySelectorAll('.time-slot').forEach(btn => {
+    btn.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const time = this.getAttribute('data-time');
+        if(this.classList.contains('active')) {
+            selectedSlots.push(time);
+        } else {
+            const index = selectedSlots.indexOf(time);
+            if (index > -1) selectedSlots.splice(index, 1);
+        }
+    });
 });
 
-// 2. Xử lý gửi Form (Demo)
-const regForm = document.getElementById('registrationForm');
-if (regForm) {
-    regForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // Ngăn trang web tải lại
-        
-        // Lấy dữ liệu
-        const name = document.getElementById('stuName').value;
-        
-        // Hiển thị thông báo
-        alert(`Cảm ơn ${name}! Chúng tôi đã nhận được thông tin và sẽ liên hệ với bạn sớm nhất.`);
-        regForm.reset(); // Xóa sạch form
-    });
-}
-
-// 3. Hiệu ứng cuộn mượt mà
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-        // Đóng menu nếu đang mở trên mobile
-        navLinks.classList.remove('active');
-    });
+// Submit Form
+document.getElementById('regForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const data = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        subject: document.getElementById('subject').value,
+        slots: selectedSlots
+    };
+    alert('Cảm ơn ' + data.name + '! Chúng tôi đã ghi nhận lịch đăng ký: ' + data.slots.join(', '));
 });
