@@ -4,24 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CleverThink | Đội ngũ ĐH Bách Khoa TP.HCM</title>
-    <meta name="description" content="Gia sư Tiếng Anh & Vật Lý chất lượng cao từ sinh viên ĐH Bách Khoa TP.HCM. Đồng hành cùng học sinh THCS & THPT từ mất gốc đến bứt phá.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar" id="navbar">
+    <nav class="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">
-                <i class="fa-solid fa-graduation-cap"></i> CleverThink
-            </a>
+            <a href="#" class="logo"><i class="fa-solid fa-graduation-cap"></i> CleverThink</a>
             <ul class="nav-links">
                 <li><a href="#about">Đội ngũ</a></li>
                 <li><a href="#feedback-section">Nhận xét</a></li>
                 <li><a href="#register">Đăng ký học</a></li>
             </ul>
-            <a href="#register" class="btn btn-primary nav-btn">Tư vấn ngay</a>
+            <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
         </div>
     </nav>
 
@@ -43,7 +40,7 @@
         </div>
     </header>
 
-    <section class="about section-bg" id="about">
+    <section class="section-padding" id="about">
         <div class="container">
             <div class="section-title">
                 <h2>Giới thiệu Đội ngũ Gia sư</h2>
@@ -51,9 +48,7 @@
             </div>
             <div class="tutor-grid">
                 <div class="tutor-card">
-                    <div class="tutor-img-wrapper">
-                        <img src="dinhduy.jpg" alt="Gia sư Đình Duy" class="tutor-avatar" onerror="this.src='https://via.placeholder.com/150?text=Avatar'">
-                    </div>
+                    <div class="placeholder-img"><i class="fa-solid fa-user"></i></div>
                     <h3>Đình Duy</h3>
                     <p class="tutor-subject">Gia sư Tiếng Anh THPT</p>
                     <ul class="tutor-achievements">
@@ -61,114 +56,53 @@
                         <li><i class="fa-solid fa-medal"></i> Giải Ba Olympic Tiếng Anh TP 2024</li>
                         <li><i class="fa-solid fa-star"></i> Điểm thi THPT Tiếng Anh: 9.6</li>
                     </ul>
-                    <div class="tutor-tags">
-                        <span>THPT</span><span>Mất gốc</span><span>Ngữ pháp</span><span>Từ vựng</span><span>Ôn thi ĐH</span>
-                    </div>
                 </div>
-
                 <div class="tutor-card">
-                    <div class="tutor-img-wrapper">
-                        <img src="kimhoang.jpg" alt="Gia sư Kim Hoàng" class="tutor-avatar" onerror="this.src='https://via.placeholder.com/150?text=Avatar'">
-                    </div>
+                    <div class="placeholder-img"><i class="fa-solid fa-user"></i></div>
                     <h3>Kim Hoàng</h3>
-                    <p class="tutor-subject">Gia sư Tiếng Anh THCS & Tuyển Sinh</p>
+                    <p class="tutor-subject">Gia sư Tiếng Anh THCS</p>
                     <ul class="tutor-achievements">
                         <li><i class="fa-solid fa-building-columns"></i> Sinh viên ĐH RMIT TP.HCM</li>
                         <li><i class="fa-solid fa-graduation-cap"></i> Chuyên bộ môn Tiếng Anh Cấp 2</li>
                         <li><i class="fa-solid fa-heart"></i> Lộ trình lấy gốc & cam kết tiến bộ</li>
                     </ul>
-                    <div class="tutor-tags">
-                        <span>Lớp 6-9</span><span>Lấy gốc</span><span>Từ vựng</span><span>Ôn thi vào 10</span>
-                    </div>
                 </div>
-
                 <div class="tutor-card">
-                    <div class="tutor-img-wrapper">
-                        <img src="trungtin.jpg" alt="Gia sư Trung Tín" class="tutor-avatar" onerror="this.src='https://via.placeholder.com/150?text=Avatar'">
-                    </div>
+                    <div class="placeholder-img"><i class="fa-solid fa-user"></i></div>
                     <h3>Trung Tín</h3>
                     <p class="tutor-subject">Gia sư Vật Lý</p>
                     <ul class="tutor-achievements">
                         <li><i class="fa-solid fa-building-columns"></i> Sinh viên ĐH Bách Khoa TP.HCM</li>
                         <li><i class="fa-solid fa-star"></i> Điểm thi THPT Vật Lý: 10.0</li>
                     </ul>
-                    <div class="tutor-tags">
-                        <span>Vật Lý THCS</span><span>Vật Lý THPT</span><span>Mất gốc</span><span>Luyện đề</span>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="feedback-section section-padding" id="feedback-section">
+    <section class="section-bg" id="register">
         <div class="container">
-            <div class="section-title">
-                <h2>Nhận xét từ Học viên</h2>
-                <p>Cảm nhận thực tế từ các bạn đã đồng hành cùng đội ngũ</p>
-            </div>
-            <div class="feedback-grid" id="feedbackList"></div>
-            <div class="feedback-form-container">
-                <h3>Gửi nhận xét của bạn</h3>
-                <form id="feedbackForm">
-                    <div class="form-group">
-                        <input type="text" id="fbName" placeholder="Họ và tên học viên (Tên thật)" required>
-                    </div>
-                    <div class="form-group">
-                        <select id="fbRating" required>
-                            <option value="5" selected>⭐⭐⭐⭐⭐ (5 Sao)</option>
-                            <option value="4">⭐⭐⭐⭐ (4 Sao)</option>
-                            <option value="3">⭐⭐⭐ (3 Sao)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="fbContent" rows="3" placeholder="Chia sẻ cảm nhận của bạn sau khi học..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Đăng nhận xét</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <section class="schedule-section section-bg" id="register">
-        <div class="container">
-            <div class="section-title">
-                <h2>Đăng Ký & Khớp Lịch Học</h2>
-                <p>Cung cấp thời gian rảnh của bạn để chúng tôi sắp xếp gia sư phù hợp nhất</p>
-            </div>
-            <div class="registration-layout">
-                <form id="registrationForm">
-                    <div class="form-group-row">
-                        <input type="text" id="stuName" placeholder="Họ và tên học sinh" required>
-                        <input type="tel" id="stuPhone" placeholder="Số điện thoại / Zalo" required>
-                    </div>
-                    <div class="form-group-row">
+            <div class="register-container">
+                <div class="register-info">
+                    <h2>Đăng Ký & Khớp Lịch Học</h2>
+                    <p>Cung cấp thời gian rảnh để chúng tôi sắp xếp gia sư phù hợp nhất.</p>
+                </div>
+                <form class="register-form" id="registrationForm">
+                    <div class="form-group"><input type="text" id="stuName" placeholder="Họ và tên học sinh" required></div>
+                    <div class="form-group"><input type="tel" id="stuPhone" placeholder="Số điện thoại / Zalo" required></div>
+                    <div class="form-row">
                         <select id="stuSubject" required>
-                            <option value="" disabled selected>Chọn môn học</option>
+                            <option value="">Chọn môn học</option>
                             <option value="Tiếng Anh">Tiếng Anh</option>
                             <option value="Vật Lý">Vật Lý</option>
                         </select>
                         <select id="stuClass" required>
-                            <option value="" disabled selected>Lớp hiện tại</option>
-                            <option value="6">Lớp 6</option>
-                            <option value="7">Lớp 7</option>
-                            <option value="8">Lớp 8</option>
-                            <option value="9">Lớp 9</option>
-                            <option value="10">Lớp 10</option>
-                            <option value="11">Lớp 11</option>
-                            <option value="12">Lớp 12</option>
+                            <option value="">Lớp hiện tại</option>
+                            <option value="6-9">Lớp 6-9</option>
+                            <option value="10-12">Lớp 10-12</option>
                         </select>
                     </div>
-
-                    <div class="timetable-picker">
-                        <label><strong>Đánh dấu các buổi bạn có thể học:</strong></label>
-                        <!-- ID NÀY ĐỂ TRỐNG ĐỂ JS TỰ VẼ BẢNG -->
-                        <div class="time-grid" id="timeGrid"></div>
-                    </div>
-
-                    <div class="form-group mt-3">
-                        <textarea id="stuNote" rows="3" placeholder="Ghi chú thêm (Mục tiêu điểm số, yêu cầu đặc biệt...)"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100 mt-2">Gửi đăng ký & Chờ xếp lịch</button>
+                    <button type="submit" class="btn btn-primary w-100">Gửi đăng ký</button>
                 </form>
             </div>
         </div>
@@ -178,17 +112,12 @@
         <div class="container text-center">
             <h3>Liên hệ nhanh</h3>
             <p><i class="fa-solid fa-phone"></i> 0394 515 747 | <i class="fa-solid fa-envelope"></i> dinhduytutor@gmail.com</p>
-            <div class="social-links mt-2">
-                <a href="#" target="_blank" class="social-btn fb-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
-                <a href="https://zalo.me/0394515747" target="_blank" class="social-btn zalo-btn">Zalo (0394.515.747)</a>
-            </div>
-            <p style="margin-top: 20px; font-size: 0.9rem; color: #888;">&copy; 2024 Gia Sư Đình Duy. Đội ngũ ĐH Bách Khoa TP.HCM. All rights reserved.</p>
+            <div class="footer-bottom">&copy; 2026 Gia Sư Đình Duy. All rights reserved.</div>
         </div>
     </footer>
 
-    <div class="floating-contact">
-        <a href="https://zalo.me/0394515747" target="_blank" class="float-btn zalo-float" title="Chat Zalo">Zalo</a>
-        <a href="#" target="_blank" class="float-btn messenger-float" title="Chat Messenger"><i class="fa-brands fa-facebook-messenger"></i></a>
+    <div class="floating-widgets">
+        <a href="https://zalo.me/0394515747" target="_blank" class="float-btn zalo"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
 
     <script src="script.js"></script>
